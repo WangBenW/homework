@@ -1,0 +1,109 @@
+package test003;
+/**
+ * @author 王奔 软工11601
+ *
+ */
+import java.util.*;
+
+public class Player {
+	   //要输入的数字
+	   int number1 = 0;
+	   int number2 = 0;
+	   int number3 = 0;
+	   
+	    public void guess1()
+	    {
+	    	Scanner sc=new Scanner(System.in); //创建用来接收用户输入数据的Scanner类的对象sc
+	        number1= sc.nextInt(); 
+	        System.out.println("the first player guesses: " + number1);
+	      
+	    }
+	    public void guess2()
+	    {  
+	    	Scanner sc=new Scanner(System.in);
+	    	number2 = sc.nextInt(); 
+	        System.out.println("the second player guesses: " + number2);
+	    	
+	    }
+	    public void guess3()
+	    {
+	    	Scanner sc=new Scanner(System.in); 
+	        number3 = sc.nextInt(); 
+	        System.out.println("the third player guesses: " + number3);
+	      
+	    }
+}
+
+
+public class GuessGame {
+
+   Player p1;  //
+   Player p2;  //用3个实例变量分别表示3个player对象
+   Player p3;  //
+   
+   public void startGame() {
+       p1 = new Player();  //
+       p2 = new Player();  //创建出player对象
+       p3 = new Player();  //
+       
+       int guessp1 = 0;  //
+       int guessp2 = 0;  //声明3个变量来保存是否猜中
+       int guessp3 = 0;  //
+       
+       boolean p1isRight = false;  //
+       boolean p2isRight = false;  //声明3个变量来保存猜中的数字
+       boolean p3isRight = false;  //
+       
+       int targetNumber = (int) (Math.random() * 10);  //产生谜底0~9之间的数字
+       System.out.println("I'm thinking of a number between 0 and 9...");
+       
+       while(true) {
+           
+           p1.guess1();  //
+           p2.guess2();  //调用player的guess方法
+           p3.guess3();  //
+           
+           //3名玩家输入的数字
+           guessp1 = p1.number1;
+           guessp2 = p2.number2;
+           guessp3 = p3.number3;
+           
+           System.out.println("Number to guess is " + targetNumber);
+           
+           //检查是否猜中
+           if (guessp1 == targetNumber) {
+               p1isRight = true;
+           }
+           if (guessp2 == targetNumber) {
+               p2isRight = true;
+           }
+           if (guessp3 == targetNumber) {
+               p3isRight = true;
+           }
+           
+           if (p1isRight || p2isRight || p3isRight)
+           {
+               System.out.println("We have a winner!");
+               System.out.println("the first player's answer is   " + p1isRight);
+               System.out.println("the second player's answer is  " + p2isRight);
+               System.out.println("the third player's answer is   " + p3isRight);
+               System.out.println("Game is over");
+               break;
+           }
+           else
+           {
+               System.out.println("Players will have to try again."+"\n\n");
+ 
+           }
+       }
+   }
+}
+
+
+//开始游戏的main函数
+public class GameBegin {
+	  public static void main (String[] args) {
+	        GuessGame game = new GuessGame();
+	        game.startGame();
+	    }
+}
