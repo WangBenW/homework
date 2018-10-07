@@ -1,19 +1,19 @@
 package test003;
 /**
- * @author Íõ±¼ Èí¹¤11601
+ * @author ç‹å¥” è½¯å·¥11601
  *
  */
 import java.util.*;
 
 public class Player {
-	   //ÒªÊäÈëµÄÊı×Ö
+	   //è¦è¾“å…¥çš„æ•°å­—
 	   int number1 = 0;
 	   int number2 = 0;
 	   int number3 = 0;
 	   
 	    public void guess1()
 	    {
-	    	Scanner sc=new Scanner(System.in); //´´½¨ÓÃÀ´½ÓÊÕÓÃ»§ÊäÈëÊı¾İµÄScannerÀàµÄ¶ÔÏósc
+	    	Scanner sc=new Scanner(System.in); //åˆ›å»ºç”¨æ¥æ¥æ”¶ç”¨æˆ·è¾“å…¥æ•°æ®çš„Scannerç±»çš„å¯¹è±¡sc
 	        number1= sc.nextInt(); 
 	        System.out.println("the first player guesses: " + number1);
 	      
@@ -38,39 +38,39 @@ public class Player {
 public class GuessGame {
 
    Player p1;  //
-   Player p2;  //ÓÃ3¸öÊµÀı±äÁ¿·Ö±ğ±íÊ¾3¸öplayer¶ÔÏó
+   Player p2;  //ç”¨3ä¸ªå®ä¾‹å˜é‡åˆ†åˆ«è¡¨ç¤º3ä¸ªplayerå¯¹è±¡
    Player p3;  //
    
    public void startGame() {
        p1 = new Player();  //
-       p2 = new Player();  //´´½¨³öplayer¶ÔÏó
+       p2 = new Player();  //åˆ›å»ºå‡ºplayerå¯¹è±¡
        p3 = new Player();  //
        
        int guessp1 = 0;  //
-       int guessp2 = 0;  //ÉùÃ÷3¸ö±äÁ¿À´±£´æÊÇ·ñ²ÂÖĞ
+       int guessp2 = 0;  //å£°æ˜3ä¸ªå˜é‡æ¥ä¿å­˜æ˜¯å¦çŒœä¸­
        int guessp3 = 0;  //
        
        boolean p1isRight = false;  //
-       boolean p2isRight = false;  //ÉùÃ÷3¸ö±äÁ¿À´±£´æ²ÂÖĞµÄÊı×Ö
+       boolean p2isRight = false;  //å£°æ˜3ä¸ªå˜é‡æ¥ä¿å­˜çŒœä¸­çš„æ•°å­—
        boolean p3isRight = false;  //
        
-       int targetNumber = (int) (Math.random() * 10);  //²úÉúÃÕµ×0~9Ö®¼äµÄÊı×Ö
+      
        System.out.println("I'm thinking of a number between 0 and 9...");
        
        while(true) {
-           
+           int targetNumber = (int) (Math.random() * 10);  //äº§ç”Ÿè°œåº•0~9ä¹‹é—´çš„æ•°å­—
            p1.guess1();  //
-           p2.guess2();  //µ÷ÓÃplayerµÄguess·½·¨
+           p2.guess2();  //è°ƒç”¨playerçš„guessæ–¹æ³•
            p3.guess3();  //
            
-           //3ÃûÍæ¼ÒÊäÈëµÄÊı×Ö
+           //3åç©å®¶è¾“å…¥çš„æ•°å­—
            guessp1 = p1.number1;
            guessp2 = p2.number2;
            guessp3 = p3.number3;
            
            System.out.println("Number to guess is " + targetNumber);
            
-           //¼ì²éÊÇ·ñ²ÂÖĞ
+           //æ£€æŸ¥æ˜¯å¦çŒœä¸­
            if (guessp1 == targetNumber) {
                p1isRight = true;
            }
@@ -100,7 +100,7 @@ public class GuessGame {
 }
 
 
-//¿ªÊ¼ÓÎÏ·µÄmainº¯Êı
+//å¼€å§‹æ¸¸æˆçš„mainå‡½æ•°
 public class GameBegin {
 	  public static void main (String[] args) {
 	        GuessGame game = new GuessGame();
